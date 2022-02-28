@@ -18,7 +18,7 @@ public int OrderNumber { get; set; }
 }
 ```
 
-When using System.Text.Json you no longer need _Datacontract_ and _Datamember_ attributes. If you need to specify property name when serializing and deserializing you can instead use  _JsonPropertyName_ attribute. ``EmitDefaultValue = false`` means that if a data member has its default value, then it will not be serialized. ``JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)`` does the same in System.Text.Json:
+When using System.Text.Json you no longer need the _Datacontract_ and _Datamember_ attributes. If you need to specify property name when serializing and deserializing you can instead use  _JsonPropertyName_ attribute. ``EmitDefaultValue = false`` means that if a data member has its default value, then it will not be serialized. ``JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)`` does the same in System.Text.Json:
 
 ```c#
 public class Request
@@ -56,7 +56,7 @@ var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolic
 return JsonSerializer.Serialize(value, value.GetType(), options);
 }
 ```
-When using System.Text.Json and when the class has a public parameterized constructor, that constructor will be used to deserialize the class. If the class has multiple constructors then you need to use the _JsonConstructor_ attribute to specify which constructor will be used. 
+When using System.Text.Json and when the class has a public parameterized constructor, that constructor will be used to deserialize the class. If the class has multiple constructors then you need to use the _JsonConstructor_ attribute to specify which constructor that will be used. 
 
 ```c#
 [JsonConstructor]
@@ -66,3 +66,5 @@ UserName = userName;
 OrderNumber = orderNumber;
 }
 ```
+
+The advantage of System.text.Json is its performance, it is much faster and it is also being improved continuely so making the change should not be in vain!
