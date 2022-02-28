@@ -56,3 +56,13 @@ var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolic
 return JsonSerializer.Serialize(value, value.GetType(), options);
 }
 ```
+When using System.Text.Json and when the class has a public parameterized constructor, that constructor will be used to deserialize the class. If the class has multiple constructors then you need to use the _JsonConstructor_ attribute to specify which constructor will be used. 
+
+```c#
+[JsonConstructor]
+public Request(string userName, int orderNumber)
+{
+UserName = userName;
+OrderNumber = orderNumber;
+}
+```
