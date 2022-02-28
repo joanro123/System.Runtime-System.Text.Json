@@ -12,9 +12,6 @@ public class Request
 [DataMember(Name = "userName")]
 public string UserName { get; set; }
 
-[DataMember(Name = "address")]
-public string Address { get; set; }
-
 [DataMember(Name = "orderNumber", EmitDefaultValue = false)]
 public int OrderNumber { get; set; }
 
@@ -29,9 +26,6 @@ public class Request
 
 [JsonPropertyName("userName")]
 public string UserName { get; set; }
-
-[JsonPropertyName("address")]
-public string Address { get; set; }
 
 [JsonPropertyName("orderNumber"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
 public int OrderNumber { get; set; }
